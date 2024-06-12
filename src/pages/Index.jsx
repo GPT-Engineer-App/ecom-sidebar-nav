@@ -38,6 +38,10 @@ const Navbar = ({ toggleSidebar }) => {
         <Input placeholder="Search products" bg="white" color="black" />
         <IconButton aria-label="Search" icon={<FaSearch />} />
         <IconButton aria-label="Cart" icon={<FaShoppingCart />} />
+        <Link href="#" display="flex" alignItems="center">
+          <FaHome />
+          <Text ml={2}>Category Home</Text>
+        </Link>
       </HStack>
     </Flex>
   );
