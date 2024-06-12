@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaBars } from "react-icons/fa";
 import { Box, Flex, IconButton, Input, VStack, HStack, Text, Container, Spacer, Link } from "@chakra-ui/react";
 import { FaShoppingCart, FaSearch, FaHome, FaList, FaTags, FaUser } from "react-icons/fa";
 
@@ -25,10 +26,11 @@ const Sidebar = () => {
   );
 };
 
-const Navbar = () => {
+const Navbar = ({ toggleSidebar }) => {
   return (
     <Flex as="header" p={4} bg="blue.500" color="white" alignItems="center">
-      <Text fontSize="2xl" fontWeight="bold">
+      <IconButton aria-label="Menu" icon={<FaBars />} onClick={toggleSidebar} />
+      <Text fontSize="2xl" fontWeight="bold" ml={4}>
         E-Commerce
       </Text>
       <Spacer />
@@ -42,11 +44,17 @@ const Navbar = () => {
 };
 
 const Index = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <Flex>
-      <Sidebar />
+      {isSidebarOpen && <Sidebar />}
       <Box flex="1">
-        <Navbar />
+        <Navbar toggleSidebar={toggleSidebar} />
         <Container maxW="container.xl" p={4}>
           <Text fontSize="2xl">Welcome to our E-Commerce Site</Text>
           <Text>Browse our categories and find the best deals!</Text>
