@@ -38,9 +38,17 @@ const Navbar = ({ toggleSidebar }) => {
         <Input placeholder="Search products" bg="white" color="black" />
         <IconButton aria-label="Search" icon={<FaSearch />} />
         <IconButton aria-label="Cart" icon={<FaShoppingCart />} />
-        <Link href="#" display="flex" alignItems="center">
+        <Link href="/" display="flex" alignItems="center">
           <FaHome />
-          <Text ml={2}>Category Home</Text>
+          <Text ml={2}>Home</Text>
+        </Link>
+        <Link href="/category" display="flex" alignItems="center">
+          <FaList />
+          <Text ml={2}>Category</Text>
+        </Link>
+        <Link href="/item-list" display="flex" alignItems="center">
+          <FaTags />
+          <Text ml={2}>Item List</Text>
         </Link>
       </HStack>
     </Flex>
